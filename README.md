@@ -1,3 +1,8 @@
+
+[![Tests](https://github.com/ahmetkagankk/ecommerce-api/actions/workflows/ci.yml/badge.svg)](https://github.com/ahmetkagankk/ecommerce-api/actions/workflows/ci.yml)
+[![Coverage](https://codecov.io/gh/ahmetkagankk/ecommerce-api/branch/main/graph/badge.svg)](https://codecov.io/gh/ahmetkagankk/ecommerce-api)
+
+
 # E-Commerce REST API
 
 ## Proje Açıklama
