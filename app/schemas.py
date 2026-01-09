@@ -104,3 +104,6 @@ class ReviewUpdate(BaseModel):
 
 class OrderDelete(BaseModel):  
     pass
+
+class OrderStatusUpdate(BaseModel):
+    status: Optional[str] = None  

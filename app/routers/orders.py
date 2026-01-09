@@ -31,3 +31,10 @@ def delete_order(order_id: int, db: Session = Depends(get_db)):
     if not success:
         raise HTTPException(status_code=404, detail="Order not found")
     return None
+
+@router.patch("/{order_id}", response_model=schemas.Order)
+def update_order_status(order_id: int, status_update: schemas.OrderStatusUpdate, db: Session = Depends(get_db)):
+    updated = crud.update_order_status(db=db, order_id=order_id, status_update=status_update)
+    if updated is None:
+        raise HTTPException(status_code=404, detail="Order not found")
+    return updated

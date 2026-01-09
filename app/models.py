@@ -66,3 +66,4 @@ class Order(Base):
 
     user = relationship("User", back_populates="orders")
     products = relationship("Product", secondary=order_product_association, back_populates="orders")
+    status = Column(String, default="pending")
