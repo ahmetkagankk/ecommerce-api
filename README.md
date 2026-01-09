@@ -19,7 +19,7 @@
 - Product → Category (many-to-one)
 - Product → Review (one-to-many)
 
-Teknolojiler:
+Teknolojiler
 - Backend: Python + FastAPI
 - Veritabanı: SQLite + SQLAlchemy
 - Test: Pytest
