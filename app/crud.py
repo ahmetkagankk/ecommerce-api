@@ -151,3 +151,23 @@ def create_order(db: Session, order: schemas.OrderCreate):
         db.refresh(db_order)
 
     return db_order
+
+    # ====================== EKLEME: Reviews için UPDATE (PATCH) ======================
+def update_review(db: Session, review_id: int, review_update: schemas.ReviewUpdate):
+    db_review = get_review(db, review_id)
+    if not db_review:
+        return None
+    if review_update.text is not None:
+        db_review.text = review_update.text
+    db.commit()
+    db.refresh(db_review)
+    return db_review
+
+# ====================== EKLEME: Orders için DELETE ======================
+def delete_order(db: Session, order_id: int):
+    db_order = get_order(db, order_id)
+    if not db_order:
+        return False
+    db.delete(db_order)
+    db.commit()
+    return True

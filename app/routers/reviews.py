@@ -31,3 +31,10 @@ def delete_review(review_id: int, db: Session = Depends(get_db)):
     if not success:
         raise HTTPException(status_code=404, detail="Review not found")
     return None
+
+@router.patch("/{review_id}", response_model=schemas.Review)
+def update_review(review_id: int, review_update: schemas.ReviewUpdate, db: Session = Depends(get_db)):
+    updated = crud.update_review(db=db, review_id=review_id, review_update=review_update)
+    if updated is None:
+        raise HTTPException(status_code=404, detail="Review not found")
+    return updated

@@ -97,3 +97,10 @@ class Order(OrderBase):
 
     class Config:
         from_attributes = True
+        
+
+class ReviewUpdate(BaseModel):
+    text: Optional[str] = None
+
+class OrderDelete(BaseModel):  
+    pass

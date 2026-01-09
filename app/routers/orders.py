@@ -24,3 +24,10 @@ def read_order(order_id: int, db: Session = Depends(get_db)):
 @router.post("/", response_model=schemas.Order, status_code=status.HTTP_201_CREATED)
 def create_order(order: schemas.OrderCreate, db: Session = Depends(get_db)):
     return crud.create_order(db=db, order=order)
+
+@router.delete("/{order_id}", status_code=204)
+def delete_order(order_id: int, db: Session = Depends(get_db)):
+    success = crud.delete_order(db=db, order_id=order_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Order not found")
+    return None
