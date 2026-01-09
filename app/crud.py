@@ -172,13 +172,4 @@ def delete_order(db: Session, order_id: int):
     db.commit()
     return True
     
-    # ORDERS İÇİN PATCH 
-    def update_order_status(db: Session, order_id: int, status_update: schemas.OrderStatusUpdate):
-    db_order = get_order(db, order_id)
-    if not db_order:
-        return None
-    if status_update.status is not None:
-        db_order.status = status_update.status
-    db.commit()
-    db.refresh(db_order)
-    return db_order
+    
